@@ -3,9 +3,9 @@
   $path    = dirname(__DIR__, 2) . '/efs';
   print $path;
   print ', '
-  print_r(scandir(dirname(__DIR__, 2)));
+  print(scandir(dirname(__DIR__, 2)));
   print ', efs path ';
-  print_r(scandir($path));
+  print(scandir($path));
   /**
   $myPDO = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/Vakanzengrabber.db');
 	$suchbegriff = ""; //$_GET['Suchbegriff'];

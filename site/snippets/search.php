@@ -1,5 +1,5 @@
 <?php
-     $myPDO = new PDO('sqlite:./../../efs/Vakanzengrabber.db');
+     $myPDO = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/Vakanzengrabber.db');
 	$suchbegriff = ""; //$_GET['Suchbegriff'];
 	 if (strcmp($suchbegriff, "") == 0)
 	 {

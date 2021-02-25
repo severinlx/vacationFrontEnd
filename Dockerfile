@@ -3,6 +3,9 @@ FROM php:7.4-apache
 
 ## Setting up default workdir
 WORKDIR "/var/www/html"
+RUN mkdir /efs
+RUN chmod -R ugo+w /efs
+
 
 
 ## Add PHP Core Extensions, like GD Library, iconv, MySQLI, Gettext

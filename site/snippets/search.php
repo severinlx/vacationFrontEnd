@@ -1,6 +1,8 @@
 <?php
   print "before dirname";
   $path    = dirname(__DIR__, 2) . '/efs';
+  var_dump(is_dir($path));
+  var_dump(is_dir(dirname(__DIR__, 2)));
   print $path;
   print ', ';
   print(scandir(dirname(__DIR__, 2)));

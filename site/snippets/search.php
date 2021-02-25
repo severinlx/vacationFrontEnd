@@ -2,7 +2,7 @@
   print "before dirname";
   $path    = dirname(__DIR__, 2) . '/efs';
   print $path;
-  print ', '
+  print ', ';
   print(scandir(dirname(__DIR__, 2)));
   print ', efs path ';
   print(scandir($path));

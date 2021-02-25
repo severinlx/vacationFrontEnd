@@ -1,5 +1,10 @@
 <?php
-     $myPDO = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/Vakanzengrabber.db');
+  print "before dirname"
+  $path    = dirname(__DIR__, 2) . '/efs';
+  print $path
+  print array_diff(scandir($path), array('.', '..'));
+  /**
+  $myPDO = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/Vakanzengrabber.db');
 	$suchbegriff = ""; //$_GET['Suchbegriff'];
 	 if (strcmp($suchbegriff, "") == 0)
 	 {
@@ -12,7 +17,7 @@
      $results = $myPDO->query($query);
 	 /**
 	 Wenn das Resultat nicht leer ist und ein array ist, wird die ausgabe vorgenommen
-	 **/
+	 **
 	 if (is_array($results) || is_object($results))
 	{
 		print "<table>\n";
@@ -32,4 +37,5 @@
 	{
 		print "Keine Resultate";
 	}
+	**/
 ?>

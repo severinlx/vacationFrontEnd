@@ -2,9 +2,10 @@
   print "before dirname";
   $path    = dirname(__DIR__, 2) . '/efs';
   print $path;
-  print array_diff(scandir(dirname(__DIR__, 2)), array('.', '..'));
-  print 'efs path';
-  print array_diff(scandir($path), array('.', '..'));
+  print ', '
+  print_r(scandir(dirname(__DIR__, 2)));
+  print ', efs path ';
+  print_r(scandir($path));
   /**
   $myPDO = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/Vakanzengrabber.db');
 	$suchbegriff = ""; //$_GET['Suchbegriff'];

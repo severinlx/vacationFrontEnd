@@ -4,11 +4,11 @@
 	$suchbegriff = ""; //$_GET['Suchbegriff'];
 	 if (strcmp($suchbegriff, "") == 0)
 	 {
-		$query = "Select * From freelancede_2021_02_26 UNION Select * From freelancermap_2021_02_26";
+		$query = "Select * From freelancede_2021_02_26";// . "UNION Select * From freelancermap_2021_02_26";
 	 }
 	 else
 	 {
-		$query = "Select * From freelancede_2021_02_26 Where Titel like %". $suchbegriff ."% UNION Select * From freelancermap_2021_02_26 Where Titel like %". $suchbegriff ."%";
+		$query = "Select * From freelancede_2021_02_26 Where Titel like %". $suchbegriff;//."% UNION Select * From freelancermap_2021_02_26 Where Titel like %". $suchbegriff ."%";
 	 }
      $results = $myPDO->query($query);
 

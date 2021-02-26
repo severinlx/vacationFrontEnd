@@ -1,15 +1,6 @@
 <?php
-  print "before dirname";
-  $path    = dirname(__DIR__, 2) . '/efs';
-  var_dump(is_dir($path));
-  var_dump(is_dir(dirname(__DIR__, 2)));
-  print $path;
-  print ', ';
-  print(scandir(dirname(__DIR__, 2)));
-  print ', efs path ';
-  print(scandir($path));
-  /**
-  $myPDO = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/Vakanzengrabber.db');
+
+  $myPDO = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/data.db');
 	$suchbegriff = ""; //$_GET['Suchbegriff'];
 	 if (strcmp($suchbegriff, "") == 0)
 	 {
@@ -20,9 +11,10 @@
 		$query = "Select * From freelancede_2020_10_30 Where Titel like %". $suchbegriff ."% UNION Select * From freelancermap_2020_10_30 Where Titel like %". $suchbegriff ."%";
 	 }
      $results = $myPDO->query($query);
+
 	 /**
 	 Wenn das Resultat nicht leer ist und ein array ist, wird die ausgabe vorgenommen
-	 **
+	 **/
 	 if (is_array($results) || is_object($results))
 	{
 		print "<table>\n";
@@ -42,5 +34,4 @@
 	{
 		print "Keine Resultate";
 	}
-	**/
 ?>

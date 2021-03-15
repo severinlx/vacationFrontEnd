@@ -26,8 +26,8 @@
 
 name: DEPLOY
 
-on: push
-  #release:
+on: #push
+  release:
    # types: [created]
 
 jobs:
@@ -77,3 +77,11 @@ jobs:
       with:
         cluster: cluster-vacation
         task-definition: ${{ steps.task-def.outputs.task-definition }}
+
+    - name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: frontend
+        cluster: ec2
+        wait-for-service-stability: true

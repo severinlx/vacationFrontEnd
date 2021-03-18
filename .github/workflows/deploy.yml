@@ -33,19 +33,19 @@ on: push
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-    
+
     - name: Check out code
       uses: actions/checkout@v2
-      
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
-        
+
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
@@ -63,7 +63,7 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-        
+
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
@@ -71,12 +71,6 @@ jobs:
         task-definition: task-definition.json
         container-name: fargate-task-definition
         image: ${{ steps.build-image.outputs.image }}
-
-    - name: Deploy to Amazon ECS Scheduled Tasks
-      uses: airfordable/ecs-deploy-task-definition-to-scheduled-task@v2.0.0
-      with:
-        cluster: cluster-vacation
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1

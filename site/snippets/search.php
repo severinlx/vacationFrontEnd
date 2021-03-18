@@ -1,5 +1,6 @@
 <?php
-    $conn = new PDO('sqlite:C:/Users/mnaas/IdeaProjects/VakanzenGrabber/Vakanzengrabber.db');
+    $conn = new PDO('sqlite:' . dirname(__DIR__, 2) . '/efs/data.db');
+
 	$with_any_one_of = "";
 	$with_the_exact_of = "";
 	$without = "";

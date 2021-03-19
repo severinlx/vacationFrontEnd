@@ -35,12 +35,12 @@
             }
         }
     ],
-   "cpu": "128",
+   "cpu": "256",
    "executionRoleArn": "arn:aws:iam::478526318168:role/ecsTaskExecutionRole",
    "family": "fargate-task-definition",
-   "memory": "256",
-   "networkMode": "host",
+   "memory": "512",
+   "networkMode": "awsvpc",
    "requiresCompatibilities": [
-       "EC2"
+       "FARGATE"
     ]
 }

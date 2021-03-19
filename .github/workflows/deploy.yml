@@ -27,7 +27,6 @@
 name: DEPLOY
 
 on: push
-
   #release:
    # types: [created]
 
@@ -78,5 +77,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: frontend
-        cluster: ec2
+        cluster: cluster-vacation
         wait-for-service-stability: true

@@ -30,6 +30,7 @@ on: push
 
   #release:
    # types: [created]
+   #####
 
 jobs:
   deploy:

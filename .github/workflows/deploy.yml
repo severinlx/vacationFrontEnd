@@ -27,6 +27,7 @@
 name: DEPLOY
 
 on: push
+
   #release:
    # types: [created]
 
